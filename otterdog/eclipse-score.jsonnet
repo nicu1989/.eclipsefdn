@@ -735,7 +735,6 @@ orgs.newOrg('automotive.score', 'eclipse-score') {
             "refs/heads/main"
           ],
           required_pull_request+: default_review_rule,
-          },
         },
       ],
     },
