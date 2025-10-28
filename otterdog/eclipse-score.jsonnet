@@ -810,7 +810,7 @@ orgs.newOrg('automotive.score', 'eclipse-score') {
         "actions",
         "python",
       ],
-      description: "Incubation repo for orchestration",
+      description: "Repository for the Orchestration framework incl. async executor",
       gh_pages_build_type: "workflow",
       homepage: "https://eclipse-score.github.io/orchestrator",
       rulesets: [
