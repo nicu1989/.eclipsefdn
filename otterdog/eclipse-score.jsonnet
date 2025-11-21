@@ -228,6 +228,14 @@ orgs.newOrg('automotive.score', 'eclipse-score') {
         "nradakovic",
       ],
     },
+    orgs.newTeam('codeowner-kyron') {
+      members+: [
+        "pawelrutkaq",
+        "vinodreddy-g",
+        "qor-lb",
+        "nicu1989",
+      ],
+    },
   ],
   secrets+: [
     orgs.newOrgSecret('DEVELOCITY_API_TOKEN') {
@@ -872,6 +880,32 @@ orgs.newOrg('automotive.score', 'eclipse-score') {
           ],
           bypass_actors+: [
             "@eclipse-score/codeowner-baselibs_rust",
+          ],
+          required_pull_request+: default_review_rule,
+        },
+      ],
+      template_repository: "eclipse-score/module_template",
+    },
+
+    newScoreRepo('kyron', true) {
+      allow_merge_commit: true,
+      allow_update_branch: false,
+      description: "Safe async runtime for Rust",
+      environments: [
+        orgs.newEnvironment('workflow-approval') {
+          deployment_branch_policy: "all",
+          reviewers+: [],
+          wait_timer: 0,
+        },
+      ],
+      // Override the rulesets
+      rulesets: [
+        orgs.newRepoRuleset('main') {
+          include_refs+: [
+            "refs/heads/main"
+          ],
+          bypass_actors+: [
+            "@eclipse-score/codeowner-kyron",
           ],
           required_pull_request+: default_review_rule,
         },
